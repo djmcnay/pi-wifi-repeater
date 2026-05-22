@@ -1,0 +1,1 @@
+savedcmd_/tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic8800_fdrv/modules.order := {   echo /tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic8800_fdrv/aic8800_fdrv.o; :; } > /tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic8800_fdrv/modules.order

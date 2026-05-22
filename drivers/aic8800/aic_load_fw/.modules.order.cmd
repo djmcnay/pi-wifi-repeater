@@ -1,0 +1,1 @@
+savedcmd_/tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic_load_fw/modules.order := {   echo /tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic_load_fw/aic_load_fw.o; :; } > /tmp/aic8800-extract/usr/src/aic8800-1.0.9/aic_load_fw/modules.order

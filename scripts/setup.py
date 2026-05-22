@@ -185,6 +185,8 @@ def main() -> int:
     parser.add_argument("--dhcp-end", default=DEFAULTS["dhcp_range_end"], help="DHCP range end")
     parser.add_argument("--dry-run", action="store_true", help="Show what would be done without doing it")
     
+    parser.add_argument("--yes", action="store_true", help="Skip confirmation prompt")
+    
     args = parser.parse_args()
     
     if os.geteuid() != 0:
@@ -201,15 +203,14 @@ def main() -> int:
     print(f"  WiFi:        Open network (no password)")
     print("=" * 60)
     
-    if args.dry_run:
-        print("\nDRY RUN - no changes made.")
-        return 0
-    
     # Confirm
-    response = input("\nProceed? [Y/n]: ")
-    if response.lower() not in ("", "y", "yes"):
-        print("Aborted.")
-        return 0
+    if not args.yes:
+        response = input("\nProceed? [Y/n]: ")
+        if response.lower() not in ("", "y", "yes"):
+            print("Aborted.")
+            return 0
+    else:
+        print("\n  --yes set, proceeding without prompt.")
     
     # Verify interfaces
     print("\nChecking network interfaces...")

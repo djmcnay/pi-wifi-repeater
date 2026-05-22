@@ -1,0 +1,22 @@
+[project]
+name = "pi-wifi-repeater"
+version = "0.1.0"
+description = "South Africa VPN WiFi repeater for Pi Zero 2W"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{name = "David McNay"}]
+
+[project.optional-dependencies]
+# For dev on Mac with UV
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+sa-repeater = "sa_vpn_repeater.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -27,22 +27,31 @@ Use Raspberry Pi Imager:
 
 Insert SD, power on, find IP on your router, SSH in.
 
-### 3. Run Setup
+### 3. Clone the Repo
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/djmcnay/pi-wifi-repeater/main/scripts/install.sh | bash
-```
-
-Or manually:
-
-```bash
-# Get the code
 git clone https://github.com/djmcnay/pi-wifi-repeater.git
 cd pi-wifi-repeater
+```
 
-# Run setup
+### 4. Set Up the WiFi Repeater (AP)
+
+```bash
 sudo python3 scripts/setup.py
 ```
+
+This creates the `Boulders Way` open network with IP `192.168.35.1`.
+
+### 5. Set Up NordVPN (Route through South Africa)
+
+Get your NordVPN access token at https://my.nordaccount.com/dashboard/nordvpn/
+
+```bash
+export NORDVPN_TOKEN=your_token_here
+sudo python3 scripts/setup_vpn.py --token $NORDVPN_TOKEN
+```
+
+Reboot. On boot: AP comes up, NordVPN auto-connects to South Africa, all downstream traffic routes through ZA.
 
 ## Development (Mac)
 
